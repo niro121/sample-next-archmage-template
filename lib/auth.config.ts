@@ -18,17 +18,17 @@ export const authConfig = {
       //   const isOnAPI = request.nextUrl?.pathname.startsWith('/api/v1');
       // console.log({ user, isOnDashboard });
 
-      if (isOnDashboard && auth === undefined) {
-        return false;
-      } else if (isOnDashboard && auth?.user?.isAdmin) {
-        return true;
-      }
+      // if (isOnDashboard && auth === undefined) {
+      //   return false;
+      // } else if (isOnDashboard && auth?.user?.isAdmin) {
+      //   return true;
+      // }
 
       //   if (!isOnDashboard) {
       //     return true;
       //   }
 
-      return false;
+      return true;
     }
   }
 };
