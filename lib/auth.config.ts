@@ -2,8 +2,14 @@ import { NextResponse } from 'next/server';
 import { db } from './db';
 import { users } from './models/users/usersModel';
 import { eq } from 'drizzle-orm';
+import toast from 'react-hot-toast';
 
 const dashboardConfigs = [
+  {
+    route: '/dashboard',
+    isPrivateRoute: true,
+    isAdmin: false
+  },
   {
     route: '/dashboard/users',
     isPrivateRoute: true,
@@ -73,6 +79,8 @@ export const authConfig = {
       const isAdmin = auth?.user.isAdmin;
       const currentPath = request.nextUrl?.pathname;
 
+      console.log({ currentPath, currentUser: user });
+
       const response = NextResponse.redirect(new URL('/login', request.url));
 
       if (user) {
@@ -92,7 +100,9 @@ export const authConfig = {
           }
 
           if (dashboardRoute.isAdmin && !isAdmin) {
-            return NextResponse.redirect(new URL('/dashboard', request.url));
+            return NextResponse.redirect(
+              new URL('/dashboard?error=permission_denied', request.url)
+            );
           }
         }
       }

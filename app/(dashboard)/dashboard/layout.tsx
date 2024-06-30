@@ -7,6 +7,8 @@ import { User } from '@/components/dashboard/users/user';
 import { NavItem } from 'app/nav-item';
 import { BiGame } from "react-icons/bi";
 import { MdSpaceDashboard } from "react-icons/md";
+import { Toaster } from "react-hot-toast";
+
 export const metadata = {
   title: 'Next.js App Router + NextAuth + Tailwind CSS',
   description:
@@ -21,6 +23,20 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full bg-gray-50">
       <body>
+        {/* ======= TOASTER COMPONENT START ========= */}
+        <Toaster position="top-center" toastOptions={{
+
+          style: {
+            borderRadius: '10px',
+            background: '#333',
+            color: '#fff',
+            fontSize: '15px',
+            zIndex: 99999999999,
+            position: 'relative',
+            textAlign: 'center'
+          },
+        }} />
+        {/* ======= TOASTER COMPONENT END ========= */}
         <div className="grid min-h-screen w-full lg:grid-cols-[280px_1fr]">
           <div className="hidden border-r bg-gray-100/40 lg:block dark:bg-gray-800/40">
             <div className="flex h-full max-h-screen flex-col gap-2">

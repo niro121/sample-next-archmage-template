@@ -7,6 +7,7 @@ const page = async () => {
     return (
 
         <div>
+
             <CardWrapper title='Welcome to the Dashboard 🎉'
                 children={<>
                     <ul >
