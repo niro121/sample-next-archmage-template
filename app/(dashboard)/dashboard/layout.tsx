@@ -6,6 +6,7 @@ import { Logo, SettingsIcon, UsersIcon, VercelLogo } from '@/components/icons';
 import { User } from '@/components/dashboard/users/user';
 import { NavItem } from 'app/nav-item';
 import { BiGame } from "react-icons/bi";
+import { MdSpaceDashboard } from "react-icons/md";
 export const metadata = {
   title: 'Next.js App Router + NextAuth + Tailwind CSS',
   description:
@@ -34,6 +35,10 @@ export default function RootLayout({
               </div>
               <div className="flex-1 overflow-auto py-2">
                 <nav className="grid items-start px-4 text-sm font-medium">
+                  <NavItem href="/dashboard">
+                    <MdSpaceDashboard className="h-4 w-4" />
+                    Dashboard
+                  </NavItem>
                   <NavItem href="/dashboard/users">
                     <UsersIcon className="h-4 w-4" />
                     Users
